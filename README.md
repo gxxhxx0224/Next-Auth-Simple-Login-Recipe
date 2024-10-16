@@ -1,5 +1,6 @@
 # Next-Auth-Simple-Login-Recipe
 Next-Auth 간단한 로그인 &amp; 흑백요리사 레시피
+(소스코드는 master 브랜치에)
 
 ## 문제
 ### 1. 로그인 및 인증
