@@ -66,22 +66,22 @@ export default function AddRecipe() {
 
         // 입력 값이 비어 있는지 확인
         if (!recipe.title.trim()) {
-            alert("레시피 제목을 입력하세요.");
+            alert("레시피 제목을 입력하셔유.");
             return;
         }
 
         if (isFieldEmpty(recipe.tag)) {
-            alert("모든 태그를 입력하세요.");
+            alert("모든 태그를 입력하셔유.");
             return;
         }
 
         if (isFieldEmpty(recipe.ingredients)) {
-            alert("모든 재료를 입력하세요.");
+            alert("모든 재료를 입력하셔유.");
             return;
         }
 
         if (isFieldEmpty(recipe.process)) {
-            alert("모든 과정을 입력하세요.");
+            alert("모든 과정을 .");
             return;
         }
 
@@ -97,10 +97,10 @@ export default function AddRecipe() {
                     if (Array.isArray(parsedRecipes)) {
                         updatedRecipes = parsedRecipes;
                     } else {
-                        console.error("저장된 레시피 데이터가 배열이 아닙니다. 빈 배열로 초기화합니다.");
+                        console.error("저장된 레시피가 배열이 아니구먼유. 빈 배열로 초기화할게유.");
                     }
                 } catch (error) {
-                    console.error("로컬 스토리지에서 레시피를 불러오는 중 오류 발생:", error);
+                    console.error("레시피를 불러오다가 오류났슈:", error);
                 }
             }
 
@@ -122,10 +122,10 @@ export default function AddRecipe() {
 
             // 로컬 스토리지에 다시 저장
             localStorage.setItem(JSON.stringify(session.user?.email), JSON.stringify(updatedRecipes));
-            alert("레시피가 로컬 스토리지에 저장되었습니다.");
+            alert("레시피가 이븐하게 저장됐어요.");
             router.push('/')
         } else {
-            alert('로그인이 필요합니다.');
+            alert('로그인이 필요해유.');
             router.push('/signin')
         }
     };
@@ -147,7 +147,7 @@ export default function AddRecipe() {
                         className="block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         value={recipe.title}
                         onChange={handleChange}
-                        placeholder="레시피 제목을 입력하세요"
+                        placeholder="레시피 제목을 입력하셔유"
                         required
                     />
                 </div>
@@ -163,13 +163,13 @@ export default function AddRecipe() {
                                 className="block flex-grow px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 value={tag}
                                 onChange={(e) => handleChange(e, index, "tag")}
-                                placeholder="태그를 입력하세요"
+                                placeholder="태그를 입력하셔유"
                                 required
                             />
                             {/* 2개 이상일 때만 삭제 버튼 표시 */}
                             {recipe.tag.length > 1 && (
                                 <button
-                                    className="bg-red-500 text-white px-2 py-1 ml-2 rounded-lg hover:bg-red-600 transition duration-200"
+                                    className="bg-red-500 text-white px-2 py-1 ml-2 rounded-lg hover:bg-red-800 transition duration-200"
                                     onClick={() => removeField("tag", index)}
                                     type="button"
                                 >
@@ -179,7 +179,7 @@ export default function AddRecipe() {
                         </div>
                     ))}
                     <button
-                        className="bg-blue-500 text-white px-4 py-2 ml-2 rounded-lg hover:bg-blue-600 transition duration-200"
+                        className="bg-gray-800 text-gray-300 px-4 py-2 ml-2 rounded-lg hover:bg-gray-100 transition duration-300"
                         onClick={() => addField("tag")}
                         type="button"
                     >
@@ -198,7 +198,7 @@ export default function AddRecipe() {
                                 className="block flex-grow px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                                 value={ingredient}
                                 onChange={(e) => handleChange(e, index, "ingredients")}
-                                placeholder="재료를 입력하세요"
+                                placeholder="재료를 입력하셔유"
                                 required
                             />
                             {/* 2개 이상일 때만 삭제 버튼 표시 */}
@@ -214,7 +214,7 @@ export default function AddRecipe() {
                         </div>
                     ))}
                     <button
-                        className="bg-blue-500 text-white px-4 py-2 ml-2 rounded-lg hover:bg-green-600 transition duration-200"
+                        className="bg-gray-800 text-gray-300 px-4 py-2 ml-2 rounded-lg hover:bg-gray-100 transition duration-300"
                         onClick={() => addField("ingredients")}
                         type="button"
                     >
@@ -233,7 +233,7 @@ export default function AddRecipe() {
                                 className="block flex-grow px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                                 value={step}
                                 onChange={(e) => handleChange(e, index, "process")}
-                                placeholder="과정을 입력하세요"
+                                placeholder="과정을 입력하셔유"
                                 required
                             />
                             {/* 2개 이상일 때만 삭제 버튼 표시 */}
@@ -249,7 +249,7 @@ export default function AddRecipe() {
                         </div>
                     ))}
                     <button
-                        className="bg-blue-500 text-white px-4 py-2 ml-2 rounded-lg hover:bg-red-600 transition duration-200"
+                        className="bg-gray-800 text-gray-300 px-4 py-2 ml-2 rounded-lg hover:bg-gray-100 transition duration-300"
                         onClick={() => addField("process")}
                         type="button"
                     >
@@ -259,7 +259,7 @@ export default function AddRecipe() {
 
                 {/* 로컬 스토리지에 저장하는 버튼 */}
                 <button
-                    className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition duration-200"
+                    className="w-full bg-emerald-700 text-white py-2 rounded-lg hover:bg-red-800 transition duration-200"
                     onClick={saveToLocalStorage}
                     type="button"
                 >

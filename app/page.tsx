@@ -58,11 +58,11 @@ export default function Home() {
     if (!session) {
         return (
             <div className="min-h-screen flex flex-col justify-center items-center bg-gray-100">
-                <Image className="mb-5" src="/image/example-recipe.jpg" alt="Example recipe" width={500} height={400} />
-                <h1 className="text-4xl font-bold mb-6 text-gray-800">로그인 후 레시피 목록을 확인하세요</h1>
+                <Image className="mb-5" src="/image/titleimg.jpg" alt="Title Image" width={500} height={400} />
+                <h1 className="text-4xl font-bold mb-6 text-gray-800">로그인 후, 흑백요리사 레시피를 확인하세유</h1>
                 <Link href="/signin">
                     <button
-                        className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-200">
+                        className="bg-gray-900 text-gray-300 font-bold px-6 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition-all duration-200">
                         로그인
                     </button>
                 </Link>
@@ -73,11 +73,11 @@ export default function Home() {
     return (
         <div className="min-h-screen bg-gray-100 py-10">
             <div className="flex justify-between items-center w-full max-w-6xl mx-auto mb-10">
-                <h1 className="text-4xl font-bold text-gray-800">저장된 레시피 목록</h1>
+                <h1 className="text-4xl font-bold text-gray-800">흑백요리사에서 본 레시피 목록</h1>
                 <Link href="/additem">
                     <button
-                        className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-200 ease-in-out">
-                        Add New Recipe
+                        className="bg-gray-800 text-gray-300 px-6 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition-all duration-200 ease-in-out">
+                        + 레시피 추가
                     </button>
                 </Link>
             </div>
@@ -85,7 +85,7 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mx-auto">
                 {recipes.length === 0 ? (
                     <div>
-                        <p className="text-lg text-gray-600">저장된 레시피가 없습니다.</p>
+                        <p className="text-lg text-gray-600">레시피가 이븐하게 저장되지 않았어요. <br />다시 말해, 레시피가 저장되지 않았어요.</p>
                     </div>
                 ) : (
                     recipes.map((recipe, index) => (
@@ -118,7 +118,7 @@ export default function Home() {
                                 }}
                             >
                                 <button
-                                    className="mt-4 w-full bg-green-500 text-white py-2 rounded-lg shadow-lg hover:bg-blue-600 transition-all duration-200">
+                                    className="mt-4 w-full bg-gray-800 text-gray-300 py-2 rounded-lg shadow-lg hover:bg-gray-100 transition-all duration-200">
                                     자세히 보기
                                 </button>
                             </Link>

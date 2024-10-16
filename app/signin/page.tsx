@@ -36,10 +36,10 @@ export default function SignInPage() {
     };
 
     return (
-        <section className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-300 to-emerald-400">
+        <section className="min-h-screen flex items-center justify-center bg-gradient-to-r from-emerald-800 to-emerald-300">
             <div className="max-w-md w-full bg-white shadow-lg rounded-lg p-6">
                 <div className="flex justify-center mb-6">
-                    <Image src="/image/login.png" alt="Login Image" width={100} height={30} />
+                    <Image src="/image/login.png" alt="Login Image" width={120} height={50} />
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -75,7 +75,7 @@ export default function SignInPage() {
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-emerald-700 text-white py-2 rounded-lg font-semibold hover:bg-emerald-800 transition duration-200"
+                        className="w-full bg-emerald-700 text-white py-2 rounded-lg font-bold hover:bg-red-800 transition duration-500"
                     >
                         Login
                     </button>

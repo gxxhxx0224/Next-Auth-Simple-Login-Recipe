@@ -24,7 +24,7 @@ const Navbar = () => {
             <nav
                 className="fixed top-0 left-0 w-full bg-emerald-700 shadow-lg flex justify-between items-center z-50 px-6 py-3">
                 <Link href="/" className="text-white font-bold text-3xl font-sans tracking-wide">
-                    My Recipe
+                    흑백 레시피
                 </Link>
 
                 <div className="flex items-center space-x-6">
@@ -35,17 +35,17 @@ const Navbar = () => {
                         </span>
                             <button
                                 onClick={() => logout()}
-                                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-semibold shadow transition duration-300"
+                                className="bg-red-500 hover:bg-red-800 text-white px-4 py-2 rounded-lg font-semibold shadow transition duration-300"
                             >
-                                Sign out
+                                로그아웃
                             </button>
                         </div>
                     ) : ( // 세션 정보가 없으면 signIn() 호출
                         <Link
                             href="/signin"
-                            className="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-lg font-semibold shadow transition duration-300"
+                            className="bg-emerald-500 hover:bg-red-700 text-white px-3 py-2 duration-500 font-bold rounded"
                         >
-                            Sign in
+                            로그인
                         </Link>
                     )}
                 </div>

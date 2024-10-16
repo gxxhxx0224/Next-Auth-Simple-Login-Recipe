@@ -42,7 +42,7 @@ export default function RecipeDetail() {
                     }
                 }
             } catch (error) {
-                console.error("파싱 중 오류가 발생했습니다:", error);
+                console.error("파싱 중 오류가 발생했어유:", error);
             }
         }
     }, [searchParams, session]);
@@ -58,7 +58,7 @@ export default function RecipeDetail() {
                 }, 1000);
                 timers.push(timer);
             } else if (sec === 0 && isRunning[index]) {
-                alert(`${index + 1}번 조리과정이 종료되었습니다!`);
+                alert(`${index + 1}번 조리과정이 종료됐어유!`);
                 const updatedIsRunning = [...isRunning];
                 updatedIsRunning[index] = false;
                 setIsRunning(updatedIsRunning);
@@ -69,14 +69,14 @@ export default function RecipeDetail() {
     }, [seconds, isRunning]);
 
     const handleDelete = () => {
-        if (confirm("정말로 이 레시피를 삭제하시겠습니까?")) {
+        if (confirm("정말로 이 레시피 삭제하실거에유?")) {
             if (session) {
                 const savedRecipes = localStorage.getItem(JSON.stringify(session.user!.email!));
                 if (savedRecipes) {
                     const parsedRecipes = JSON.parse(savedRecipes);
                     const updatedRecipes = parsedRecipes.filter((r: RecipeDetailProps) => r.title !== recipe?.title);
                     localStorage.setItem(JSON.stringify(session.user?.email), JSON.stringify(updatedRecipes));
-                    alert("레시피가 삭제되었습니다.");
+                    alert("흑백레시피가 삭제되었어유.");
                     router.push('/');
                 }
             }
@@ -91,19 +91,19 @@ export default function RecipeDetail() {
     const handleEdit = () => {
         // 필수 필드가 비어 있는지 검증
         if (!editedRecipe?.title.trim()) {
-            alert("레시피 제목을 입력하세요.");
+            alert("레시피 제목을 입력하셔유.");
             return;
         }
         if (isFieldEmpty(editedRecipe?.tag || [])) {
-            alert("모든 태그를 입력하세요.");
+            alert("모든 태그를 입력하셔유.");
             return;
         }
         if (isFieldEmpty(editedRecipe?.ingredients || [])) {
-            alert("모든 재료를 입력하세요.");
+            alert("모든 재료를 입력하셔유.");
             return;
         }
         if (isFieldEmpty(editedRecipe?.process || [])) {
-            alert("모든 조리 과정을 입력하세요.");
+            alert("모든 조리 과정을 입력하셔유.");
             return;
         }
 
@@ -124,7 +124,7 @@ export default function RecipeDetail() {
                 // 수정된 배열을 로컬 스토리지에 저장
                 localStorage.setItem(JSON.stringify(session.user?.email), JSON.stringify(updatedRecipes));
 
-                alert("레시피가 수정되었습니다.");
+                alert("레시피가 이븐하게 수정됐어요.");
                 setIsEditing(false);
                 setRecipe(newVersionRecipe); // 현재 레시피 상태는 최신 버전으로 업데이트
                 setHistory(updatedRecipes.filter(r => r.title === newVersionRecipe.title)); // 히스토리 업데이트
@@ -137,7 +137,7 @@ export default function RecipeDetail() {
         if (selectedVersion) {
             setRecipe(selectedVersion);
             setEditedRecipe(selectedVersion);
-            alert(`버전 ${version}으로 복구되었습니다.`);
+            alert(`버전 ${version}으로 복구되었어유.`);
         }
     };
 
@@ -188,12 +188,12 @@ export default function RecipeDetail() {
             updatedIsRunning[index] = true;
             setIsRunning(updatedIsRunning);
         } else {
-            alert('유효한 시간을 입력하세요.');
+            alert('시간을 입력하세유');
         }
     };
 
     if (!recipe || !editedRecipe) {
-        return <div>레시피를 불러오지 못했습니다.</div>;
+        return <div>레시피를 불러오지 못했어유.</div>;
     }
 
     return (
@@ -238,7 +238,7 @@ export default function RecipeDetail() {
                                 </div>
                             ))}
                             <button
-                                className="bg-blue-500 text-white px-3 py-1 mr-2 rounded-lg hover:bg-blue-600"
+                                className="bg-gray-800 text-gray-300 px-4 py-2 ml-2 rounded-lg hover:bg-gray-100 transition duration-300"
                                 onClick={() => handleAddField('tag')}
                             >
                                 추가
@@ -269,7 +269,7 @@ export default function RecipeDetail() {
                                 </div>
                             ))}
                             <button
-                                className="bg-blue-500 text-white px-3 py-1 mr-2 rounded-lg hover:bg-blue-600"
+                                className="bg-gray-800 text-gray-300 px-4 py-2 ml-2 rounded-lg hover:bg-gray-100 transition duration-300"
                                 onClick={() => handleAddField('ingredients')}
                             >
                                 추가
@@ -300,7 +300,7 @@ export default function RecipeDetail() {
                                 </div>
                             ))}
                             <button
-                                className="bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600"
+                                className="bg-gray-800 text-gray-300 px-4 py-2 ml-2 rounded-lg hover:bg-gray-100 transition duration-300"
                                 onClick={() => handleAddField('process')}
                             >
                                 추가
@@ -310,7 +310,7 @@ export default function RecipeDetail() {
                         {/* 수정 및 취소 버튼 */}
                         <div className="flex justify-between">
                             <button
-                                className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
+                                className="bg-gray-800 text-gray-300 px-4 py-2 rounded-lg hover:bg-gray-100"
                                 onClick={handleEdit}
                             >
                                 수정 완료
@@ -346,7 +346,7 @@ export default function RecipeDetail() {
                                             }}
                                         />
                                         <button
-                                            className="rounded-lg px-3 mr-2 bg-blue-600 text-white"
+                                            className="rounded-lg px-3 mr-2 bg-gray-800 text-gray-300 hover:bg-gray-100"
                                             onClick={() => startTimer(index)}
                                         >
                                             타이머 시작
